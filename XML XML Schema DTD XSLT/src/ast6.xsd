@@ -1,0 +1,108 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="real-estate">
+    <xs:annotation>
+      <xs:documentation>root element</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="agencies">
+          <xs:annotation>
+            <xs:documentation>agencies is a child element of root</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="agency" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="name"/>
+                    <xs:element type="xs:string" name="email"/>
+                    <xs:element type="xs:long" name="phone"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="owners">
+          <xs:annotation>
+            <xs:documentation>owners is a child element of root</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="owner" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="name"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="properties">
+          <xs:annotation>
+            <xs:documentation>properties is a child element of root</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="property">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="name">
+                      <xs:annotation>
+                        <xs:documentation>owner reference for property</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="desc">
+                      <xs:annotation>
+                        <xs:documentation>sub-child elements for properties element</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:byte" name="noOfFlat"/>
+                    <xs:element name="features">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="feature" maxOccurs="unbounded" minOccurs="0"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="owner"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="flats">
+          <xs:annotation>
+            <xs:documentation>flats is a child element of root</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="flat">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="name">
+                      <xs:annotation>
+                        <xs:documentation>reference to property for flat element</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="desc"/>
+                    <xs:element name="features">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="feature" maxOccurs="unbounded" minOccurs="0"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="property"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

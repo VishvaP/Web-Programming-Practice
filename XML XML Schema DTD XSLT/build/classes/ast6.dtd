@@ -1,0 +1,27 @@
+<!ELEMENT real-estate (agencies, owners, properties, flats)>
+
+<!ELEMENT agencies (agency*)>
+<!ELEMENT owners (owner*)>
+<!ELEMENT properties (property*)>
+<!ELEMENT flats (flat*)>
+
+<!ELEMENT agency (name, email, phone)>
+
+<!ELEMENT owner (name)>
+
+<!ELEMENT property (name, desc, noOfFlat, features?)>
+<!ATTLIST property owner CDATA #REQUIRED>
+
+<!ELEMENT flat (name, desc, features)>
+<!ATTLIST flat property CDATA #REQUIRED>
+
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT noOfFlat (#PCDATA)>
+<!ELEMENT desc (#PCDATA)>
+
+<!ELEMENT features (feature+)>
+<!ELEMENT feature (#PCDATA)>
+
+

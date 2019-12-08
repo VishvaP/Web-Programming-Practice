@@ -1,0 +1,46 @@
+<!ELEMENT real-estate (agencies, owners, properties, flats)>
+
+<!ELEMENT agencies (agency*)>
+<!ELEMENT owners (owner*)>
+<!ELEMENT properties (property*)>
+<!ELEMENT flats (flat, flat+)>
+
+<!ELEMENT agency (name, (
+		(address, email, phone) |
+		(address, phone, email) |
+		(email, address, phone) |
+		(email, phone, address) |
+		(phone, address, email) |
+		(phone, email, address)
+	))>
+
+<!ELEMENT owner (name, address)>
+
+<!ELEMENT property (name, address, description, numberOfFlats, features?)>
+<!ATTLIST property
+        owner CDATA #REQUIRED>
+
+<!ELEMENT flat (name, data, features?)>
+<!ATTLIST flat
+        property CDATA #REQUIRED>
+
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT numberOfFlats (#PCDATA)>
+
+<!ELEMENT features (feature, feature, feature?, feature?, feature?)>
+<!ELEMENT feature (#PCDATA)>
+
+<!ELEMENT description (#PCDATA | flatReference)*>
+<!ELEMENT flatReference (#PCDATA)>
+<!ATTLIST flatReference
+        flatName CDATA #REQUIRED>
+
+<!ELEMENT data ANY>
+
+<!ELEMENT address (street, ((postalCode, state, country) | (state, postalCode)))>
+<!ELEMENT street (#PCDATA)>
+<!ELEMENT postalCode (#PCDATA)>
+<!ELEMENT state (#PCDATA)>
+<!ELEMENT country (#PCDATA)>

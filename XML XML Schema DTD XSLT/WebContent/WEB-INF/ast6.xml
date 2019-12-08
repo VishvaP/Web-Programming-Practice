@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ast6.xsl"?>
+<!-- root element -->
+<real-estate>
+<!-- agencies is a child element of root-->
+<agencies>
+<agency>
+<name>Patel Builders</name>
+<email>vishvapatel652@gmail.com</email>
+<phone>9003362230</phone>
+</agency>
+</agencies>
+
+<!--  owners is a child element of root -->
+<owners>
+<owner>
+<name>Vishva Patel</name>
+</owner>
+</owners>
+<!-- properties is a child element of root -->
+<properties>
+<porperty owner="Vishva Patel">     <!--  owner reference for property -->
+<name>Aakash Group</name>		<!--  sub-child elements for properties element -->
+<desc>Wonderful place in center of city and near VIP road</desc>
+<noOfFlat>16</noOfFlat>
+
+<features>
+<feature>3 Automatic Elevator</feature>
+<feature> Garden</feature>
+<feature>Swimming pool</feature>
+<feature>Gym</feature>
+<feature>24*7 security</feature>
+<feature>Inter communication</feature>
+</features>
+</porperty>
+</properties>
+
+
+<!--  flats is a child element of root -->
+<flats>
+<flat property="Akash Group">	<!-- reference to property for flat element -->
+<name> Akash East Point</name>
+<desc> Amazing architecture with modern facilities</desc>
+<features>
+<feature> 5 BHK</feature>
+<feature> Centralized AC</feature>
+<feature> 4 bathrooms</feature>
+<feature> Green environment</feature>
+<feature> happy home</feature>
+</features>
+</flat>
+</flats>
+
+
+
+
+
+</real-estate>
